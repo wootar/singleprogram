@@ -14,5 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       
+    - name: Install deps
+      run: sudo apt update; sudo apt install -y libxcb-xinerama0 libxcb-xinerama0-dev
+    
     - name: Build
-      run: make
+      run: make -j2
