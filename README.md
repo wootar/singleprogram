@@ -1,6 +1,6 @@
-dwm - dynamic window manager
+singleprogram - dwm for single program/app usage
 ============================
-dwm is an extremely fast, small, and dynamic window manager for X.
+singleprogram is an extremely fast, small, and dynamic window manager for single program usage.
 
 
 Requirements
@@ -19,30 +19,22 @@ necessary as root):
     make clean install
 
 
-Running dwm
+Running singleprogram
 -----------
 Add the following line to your .xinitrc to start dwm using startx:
 
-    exec dwm
+    exec singleprogram
 
 In order to connect dwm to a specific display, make sure that
 the DISPLAY environment variable is set correctly, e.g.:
 
-    DISPLAY=foo.bar:1 exec dwm
+    DISPLAY=foo.bar:1 exec singleprogram
 
 (This will start dwm on display :1 of the host foo.bar.)
 
-In order to display status info in the bar, you can do something
-like this in your .xinitrc:
 
-    while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
-    do
-    	sleep 1
-    done &
-    exec dwm
+Examples:
+----------
+Kiosk usage: 
 
-
-Configuration
--------------
-The configuration of dwm is done by creating a custom config.h
-and (re)compiling the source code.
+Add to xinitrc: `firefox --kiosk *your kiosk page* & exec singleprogram`
