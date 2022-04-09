@@ -14,8 +14,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
       
-    - name: Install deps
-      run: sudo apt update; sudo apt install -y libxcb-xinerama0 libxcb-xinerama0-dev libxinerama1 libxinerama-dev
+    - name: Install deps for building and testing
+      run: sudo apt update; sudo apt install -y libxcb-xinerama0 libxcb-xinerama0-dev libxinerama1 libxinerama-dev ffmpeg stterm
     
     - name: Build
       run: make -j2
+    
+    - name: Run test
+      uses: GabrielBB/xvfb-action@v1
+      with:
+        run: sh .github/test.sh

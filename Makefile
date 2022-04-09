@@ -28,7 +28,7 @@ dwm: ${OBJ}
 	mv dwm singleprogram || true
 
 clean:
-	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz
+	rm -f singleprogram ${OBJ} dwm-${VERSION}.tar.gz
 
 dist: clean
 	mkdir -p singleprogram-${VERSION}
@@ -47,7 +47,7 @@ install: all
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
 
 uninstall:
-	rm -f ${DESTDIR}${PREFIX}/bin/dwm\
+	rm -f ${DESTDIR}${PREFIX}/bin/singleprogram\
 		${DESTDIR}${MANPREFIX}/man1/dwm.1
 
 .PHONY: all options clean dist install uninstall
