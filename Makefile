@@ -1,3 +1,4 @@
+# singleprogram - window manager for single program usage based off dwm
 # dwm - dynamic window manager
 # See LICENSE file for copyright and license details.
 
@@ -9,7 +10,7 @@ OBJ = ${SRC:.c=.o}
 all: options dwm
 
 options:
-	@echo dwm build options:
+	@echo singleprogram build options:
 	@echo "CFLAGS   = ${CFLAGS}"
 	@echo "LDFLAGS  = ${LDFLAGS}"
 	@echo "CC       = ${CC}"
@@ -24,12 +25,13 @@ config.h:
 
 dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
+	mv dwm singleprogram || true
 
 clean:
 	rm -f dwm ${OBJ} dwm-${VERSION}.tar.gz
 
 dist: clean
-	mkdir -p dwm-${VERSION}
+	mkdir -p singleprogram-${VERSION}
 	cp -R LICENSE Makefile README config.def.h config.mk\
 		dwm.1 drw.h util.h ${SRC} dwm.png transient.c dwm-${VERSION}
 	tar -cf dwm-${VERSION}.tar dwm-${VERSION}
